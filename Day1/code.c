@@ -11,15 +11,6 @@ int main() {
 
 	while(fscanf(file, "%d\n", &val) != EOF)
 	{
-		len++;
-	}
-
-	fclose(file);
-	file = fopen("wordcount", "r");
-
-	for(int i=0; i<len; i++)
-	{
-		fscanf(file, "%d\n", &val);
 		val = (val/3)-2;
 		sum = sum + val;
 
