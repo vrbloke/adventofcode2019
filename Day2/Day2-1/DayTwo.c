@@ -13,7 +13,7 @@ int main(){
     //Read size of input code (could do this manually but why?)
     while(fscanf(in, "%d,", &head) != EOF)
     {
-        size++; //head doubles as code length measurement
+        size++;
     }
 
     fclose(in);
