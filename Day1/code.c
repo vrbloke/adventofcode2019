@@ -7,7 +7,6 @@ int main() {
 	file = fopen("wordcount", "r");
 	int val = 0;
 	int sum = 0;
-	int len = 0;
 
 	while(fscanf(file, "%d\n", &val) != EOF)
 	{
