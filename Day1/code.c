@@ -11,9 +11,6 @@ int main() {
 
 	while(fscanf(file, "%d\n", &val) != EOF)
 	{
-		val = (val/3)-2;
-		sum = sum + val;
-
 		for(val = (val/3)-2; val > 0; val=(val/3)-2)
 		{
 			sum = sum + val;
