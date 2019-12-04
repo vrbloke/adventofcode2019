@@ -1,0 +1,15 @@
+#!/bin/bash
+
+column -s',' -t input | tr -s ' ' > clean_input
+
+cut -d$'\n' -f1 clean_input | sed -e 's/ /\n/g' >  clean_one
+cut -d$'\n' -f2 clean_input | sed -e 's/ /\n/g' >  clean_two
+
+cut -c2- clean_one  > amounts_one
+cut -c1 clean_one > directions_one
+
+cut -c2- clean_two > amounts_two
+cut -c1 clean_two > directions_two
+
+rm clean_one clean_two clean_input
+
