@@ -11,8 +11,11 @@ cut -c1 clean_one > directions_one
 cut -c2- clean_two > amounts_two
 cut -c1 clean_two > directions_two
 
+wc -l clean_one | cut -d' ' -f1 > lines_one
+wc -l clean_two | cut -d' ' -f1 > lines_two
+
 rm clean_one clean_two clean_input
 
 ./a.out
 
-rm directions_one directions_two amounts_one amounts_two
+rm directions_one directions_two amounts_one amounts_two lines_one lines_two

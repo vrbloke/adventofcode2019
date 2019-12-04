@@ -11,5 +11,5 @@ cut -c1 clean_one > directions_one
 cut -c2- clean_two > amounts_two
 cut -c1 clean_two > directions_two
 
-rm clean_one clean_two clean_input
+rm clean_input
 
