@@ -2,14 +2,8 @@
 #include <stdio.h>
 
 /*
-    Each cell of code can now be many characters long. 
-    I can't define a single width to fit them all.
-    Instead: I can introduce an extra step (slowing down the code) splitting the code cells 
-    into arrays of single digits (using the floor division method, with extra checking for 
-    relevant zeroes).
-    Once code is split into an array, it can be evaluated: I should only need one array
-    at a time, so this can be a single variable.
-    Code in general should still be stored as a 1D array, only temporarily split for interpretation.
+    Very similar to the Day 2 puzzle. I used more efficient (if not as readable) code
+    when interpreting the instructions, and I created arrays containing the digits of each instruction to be able to check for mode.
 */
 
 //pow function to make things easier in one part
@@ -125,17 +119,17 @@ int main()
             break;
 
             case 5: //Jump-if-true
-            a = instruction_array[1] ? code[head+1] : code[code[head+1]]; //1
-            b = instruction_array[0] ? code[head+2] : code[code[head+2]]; //9
-            head = a ? b : head; //9
-            head_jump = a ? 0 : 3; //0
+            a = instruction_array[1] ? code[head+1] : code[code[head+1]];
+            b = instruction_array[0] ? code[head+2] : code[code[head+2]];
+            head = a ? b : head;
+            head_jump = a ? 0 : 3;
             break;
 
             case 6: //Jump-if-false
-            a = instruction_array[1] ? code[head+1] : code[code[head+1]]; //0
-            b = instruction_array[0] ? code[head+2] : code[code[head+2]]; //9
-            head = a ? head : b; //9
-            head_jump = a ? 3 : 0; //0
+            a = instruction_array[1] ? code[head+1] : code[code[head+1]];
+            b = instruction_array[0] ? code[head+2] : code[code[head+2]];
+            head = a ? head : b;
+            head_jump = a ? 3 : 0;
             break;
 
             case 7: //Less than
@@ -144,13 +138,13 @@ int main()
             code[code[head+3]] = a < b ? 1 : 0;
             break;
 
-            case 8:
+            case 8: //Equal
             a = instruction_array[2] ? code[head+1] : code[code[head+1]];
             b = instruction_array[1] ? code[head+2] : code[code[head+2]];
             code[code[head+3]] = a == b ? 1 : 0;
             break;
 
-            case 9:
+            case 9: //Terminate
             printf("Terminating.\n");
             return 0;
 
